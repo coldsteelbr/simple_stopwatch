@@ -47,7 +47,7 @@ public class StopwatchTimeManager {
         mCurrentDurationInMillis = 0;
         initSystemElapsedTimeInMillis = Math.round(System.nanoTime() / 1000000);
 
-        task = TM.scheduleAtFixedRate(stopwatchRunnable, 0, 100, TimeUnit.MILLISECONDS);
+        task = TM.scheduleAtFixedRate(stopwatchRunnable, 0, 10, TimeUnit.MILLISECONDS);
     }
 
     public void stop() {
