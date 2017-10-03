@@ -1,7 +1,6 @@
 package ru.romanbrazhnikov.simplestopwatch.business;
 
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -28,8 +27,6 @@ public class StopwatchTimeManager {
             mCurrentDurationInMillis =
                     Math.round(System.nanoTime() / 1000000) - initSystemElapsedTimeInMillis;
 
-            Log.d("RUN: ", "mDurationInMillis: "
-                    + String.valueOf(Math.round((mCurrentDurationInMillis + mDurationInMillis) / 1000)));
             runViewCommand();
         }
     };
@@ -49,14 +46,12 @@ public class StopwatchTimeManager {
         mDurationInMillis = millis;
         mCurrentDurationInMillis = 0;
         initSystemElapsedTimeInMillis = Math.round(System.nanoTime() / 1000000);
-        Log.d("RUN: ", "initSystemElapsedTimeInMillis: "
-                + String.valueOf(initSystemElapsedTimeInMillis));
-        //TM = new TimeManager(1);
+
         task = TM.scheduleAtFixedRate(stopwatchRunnable, 0, 100, TimeUnit.MILLISECONDS);
     }
 
     public void stop() {
-        //TM.shutdown();
+
         task.cancel(false);
         mDurationInMillis += mCurrentDurationInMillis;
         mCurrentDurationInMillis = 0;
