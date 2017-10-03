@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ru.romanbrazhnikov.simplestopwatch.MainActivity">
+    tools:context="ru.romanbrazhnikov.simplestopwatch.view.MainActivity">
 
     <!-- DISPLAY -->
     <TextView
@@ -24,17 +24,18 @@
         >
 
         <Button
-            android:id="@+id/b_start"
+            android:id="@+id/b_startStop"
             android:text="Start"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/b_stop"
-            android:text="Stop"
+            android:id="@+id/b_reset"
+            android:text="Reset"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
     </LinearLayout>
 </LinearLayout>
