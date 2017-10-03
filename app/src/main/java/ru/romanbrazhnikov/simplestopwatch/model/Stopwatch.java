@@ -21,15 +21,19 @@ public class Stopwatch {
 
     public void start() {
         mStopwatchTimeManager.start(durationInMillis);
+        mStopwatchTimeManager.runViewCommand();
     }
 
     public void stop() {
         mStopwatchTimeManager.stop();
+        durationInMillis = mStopwatchTimeManager.getTotalDurationInMillis();
+        mStopwatchTimeManager.runViewCommand();
     }
 
     public void reset() {
-        stop();
+        mStopwatchTimeManager.reset();
         durationInMillis = 0;
+        mStopwatchTimeManager.runViewCommand();
     }
 
     public String getTime() {

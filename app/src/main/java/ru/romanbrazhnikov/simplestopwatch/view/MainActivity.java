@@ -11,7 +11,7 @@ import ru.romanbrazhnikov.simplestopwatch.model.Stopwatch;
 import ru.romanbrazhnikov.simplestopwatch.utils.DateTimeUtils;
 
 public class MainActivity extends AppCompatActivity
-implements StopwatchView{
+        implements StopwatchView {
 
     private Stopwatch mStopwatch;
 
@@ -46,8 +46,9 @@ implements StopwatchView{
     }
 
     @Override
-    public void refreshDisplay(long durationInMillis){
+    public void refreshDisplay(long durationInMillis) {
         tvDisplay.setText(DateTimeUtils.DurationInMillisToFormattedTime(durationInMillis));
+        //tvDisplay.setText(String.valueOf(durationInMillis));
     }
 
     class StartClickListener implements View.OnClickListener {
@@ -77,6 +78,8 @@ implements StopwatchView{
         @Override
         public void onClick(View view) {
             mStopwatch.reset();
+            bStartStop.setText("Start");
+            bStartStop.setOnClickListener(mStartClickListener);
             bReset.setVisibility(View.GONE);
         }
     }

@@ -10,13 +10,6 @@ public class DateTimeUtils {
     private static final String sFormat = "%02d:%02d:%02d.%02d";
 
     public static String DurationInMillisToFormattedTime(long millis) {
-        String hms = String.format(sFormat,
-                TimeUnit.MILLISECONDS.toHours(millis),
-                TimeUnit.MILLISECONDS.toMinutes(millis)
-                        - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)),
-                TimeUnit.MILLISECONDS.toSeconds(millis)
-                        - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)),
-                millis - TimeUnit.MILLISECONDS.toSeconds(millis));
-        return hms;
+        return String.format(sFormat, 0, 0, millis / 1000, millis % 1000);
     }
 }
